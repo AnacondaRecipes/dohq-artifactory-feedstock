@@ -13,12 +13,13 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install --no-deps . -vv
 
 requirements:
   host:
     - pip
     - python >=3.7
+    - wheel
   run:
     - pyjwt ~=2.0
     - python >=3.7
@@ -37,9 +38,16 @@ about:
   home: https://devopshq.github.io/artifactory/
   summary: A Python interface to Artifactory
   license: MIT
+  license_family: MIT
   license_file: LICENSE
+  description: |
+    a live python package for JFrog Artifactory.
+  dev_url: https://github.com/devopshq
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/34583
+
   recipe-maintainers:
-    - condacircus
-    - ThomasGandilhon
+    - ianaobi
+
